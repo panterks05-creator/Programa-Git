@@ -1,0 +1,54 @@
+================================================================================
+ EJERCICIO DE VERSIONAMIENTO GIT - EVIDENCIA GA7-220501096-AA1-EV05
+ Ejecutar estos comandos EN ORDEN, en PowerShell, dentro de esta carpeta.
+ Grabar la pantalla mientras se ejecutan (el entregable es un video MP4).
+================================================================================
+
+--- PREPARACION (ya realizada: el repositorio Programa-Git existe en GitHub) ---
+    https://github.com/jfor26/Programa-Git
+
+--- 0. Situarse en la carpeta del programa -------------------------------------
+cd "$env:USERPROFILE\OneDrive\Desktop\CURSOS MINISTERIO\CURSOS SENA-HACER\TECNOLOGO EN ANALISIS Y DESARROLLO DE SOFTWARE\Actividades\Actividades de Aprendizaje 7\Actividades\Herramientas de versionamiento (GIT) instalada y configurada. GA7-220501096-AA1-EV05.Evidencia\Programa-Git"
+
+--- 1. Verificar la herramienta y la configuracion (ambito LOCAL) --------------
+git --version
+git config --global user.name
+git config --global user.email
+
+--- 2. Inicializar el repositorio local (ambito LOCAL) -------------------------
+git init
+git status
+
+--- 3. Preparar y confirmar el programa (ambito LOCAL) -------------------------
+git add .
+git status
+git commit -m "Commit inicial del programa"
+git log --oneline
+
+--- PASO 1 de la guia: asociar el repositorio remoto (ambito REMOTO) -----------
+git remote add github https://github.com/jfor26/Programa-Git.git
+git remote add origin https://github.com/jfor26/Programa-Git.git
+git remote -v
+
+--- PASO 2 de la guia: enviar los cambios al remoto (ambito REMOTO) ------------
+git branch -M master
+git push github master
+    # Se abrira una ventana del navegador para autorizar con la cuenta de GitHub.
+    # Despues: abrir https://github.com/jfor26/Programa-Git y mostrar el historico.
+
+--- PASO 3 de la guia: archivo kotlin.txt (ambito LOCAL + REMOTO) --------------
+"Juan Fernando Ortega Rojas" | Out-File -Encoding utf8 kotlin.txt
+"jfingenieria90@gmail.com"   | Add-Content -Encoding utf8 kotlin.txt
+Get-Content kotlin.txt
+
+git add .
+git status
+git commit -m "Anadido datos."
+git log --oneline
+git push origin master
+
+--- VERIFICACION FINAL ---------------------------------------------------------
+    Abrir https://github.com/jfor26/Programa-Git y mostrar:
+      - el archivo kotlin.txt con el nombre y el correo
+      - el historico con los dos commits
+================================================================================
